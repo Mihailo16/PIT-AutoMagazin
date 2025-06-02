@@ -321,3 +321,34 @@ footer p {
         max-height: 150px;
     }
 }
+/* Sidebar reklama */
+.ad-sidebar {
+    background-color: #f8f8f8;
+    padding: 15px;
+    border-radius: 5px;
+}
+.ad-sidebar img {
+    transition: opacity 0.3s ease;
+}
+.ad-sidebar img:hover {
+    opacity: 0.8;
+}
+
+/* Horizontalni baner */
+.ad-horizontal {
+    max-width: 100%;
+}
+.ad-horizontal img {
+    border-radius: 5px;
+}
+@media (max-width: 768px) {
+    .ad-horizontal img {
+        max-width: 100%;
+    }
+}
+
+/* Footer baner */
+.ad-footer img {
+    max-width: 100%;
+    border-radius: 5px;
+}
