@@ -6,10 +6,10 @@
     <meta name="description" content="Kontaktirajte Auto Magazin za upite o automobilima, test vožnjama ili saradnji.">
     <meta name="keywords" content="auto magazin, kontakt, automobili, test vožnje">
     <title>Auto Magazin - Kontakt</title>
-        <link rel="icon" type="image/x-icon" href="SLIKE/logo.png">
-
+    <link rel="icon" type="image/x-icon" href="SLIKE/logo.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -20,7 +20,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                 <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html">Početna</a></li>
                     <li class="nav-item"><a class="nav-link" href="novosti.html">Novosti</a></li>
                     <li class="nav-item"><a class="nav-link" href="poredjenje.html">Poređenje</a></li>
@@ -34,18 +34,19 @@
     <section class="container my-5">
         <h2>Kontaktirajte nas</h2>
         <p>Imate pitanja o najnovijim modelima, želite test vožnju ili saradnju? Pošaljite nam poruku!</p>
-        <form class="contact-form">
+        <div id="form-message" class="d-none"></div>
+        <form class="contact-form" action="https://formspree.io/f/xqabkpwn" method="POST">
             <div class="mb-3">
                 <label for="ime" class="form-label">Ime</label>
-                <input type="text" class="form-control" id="ime" placeholder="Unesite vaše ime" required>
+                <input type="text" class="form-control" id="ime" name="ime" placeholder="Unesite vaše ime" required>
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" placeholder="Unesite vaš email" required>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Unesite vaš email" required>
             </div>
             <div class="mb-3">
                 <label for="poruka" class="form-label">Poruka</label>
-                <textarea class="form-control" id="poruka" rows="5" placeholder="Unesite vašu poruku" required></textarea>
+                <textarea class="form-control" id="poruka" name="poruka" rows="5" placeholder="Unesite vašu poruku" required></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Pošalji</button>
         </form>
