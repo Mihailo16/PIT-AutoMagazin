@@ -1,31 +1,70 @@
+:root {
+    --primary: #d4a017;
+    --secondary: #6c757d;
+    --accent: #e6b800;
+    --background-dark: #1a1a1a;
+    --background-light: #2c2c2c;
+    --text-light: #fff;
+    --text-dark: #333;
+    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --shadow-dark: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: radial-gradient(circle at center, #1a1a1a 0%, #2c2c2c 100%);
-    color: #fff;
+    background: radial-gradient(circle at center, var(--background-dark) 0%, var(--background-light) 100%);
+    color: var(--text-light);
+    line-height: 1.6;
 }
 
-#igicon{
+.navbar {
+    background: linear-gradient(to right, #1e2a44, var(--primary)) !important;
+    padding: 1rem 0;
+    box-shadow: var(--shadow-light);
+}
+
+.navbar-brand img {
+    height: 40px;
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand img:hover {
+    transform: scale(1.1);
+}
+
+.nav-link {
+    color: var(--text-light) !important;
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--accent) !important;
+    transform: translateY(-2px);
+}
+
+#igicon {
     height: 24px;
     width: 24px;
+    transition: transform 0.3s ease;
 }
 
-#igicon:hover{
-    transform: scale(1.05);
-
+#igicon:hover {
+    transform: scale(1.1);
 }
 
 .hero-section {
     position: relative;
-    background-image: url('images/hero.jpg');
+    background-image: url('SLIKE/hero.jpg');
     background-size: cover;
     background-position: center;
-    height: 500px;
+    height: 600px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: #fff;
     overflow: hidden;
 }
 
@@ -35,58 +74,67 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(40, 40, 40, 0.7));
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(40, 40, 40, 0.8));
     z-index: 1;
 }
 
 .hero-content {
     position: relative;
     z-index: 2;
+    padding: 20px;
 }
 
 .hero-content h1 {
     font-size: 3.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     font-weight: 700;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    color: #fff;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+    color: var(--text-light);
 }
 
 .hero-content p {
-    font-size: 1.3rem;
-    margin-bottom: 2rem;
-    max-width: 600px;
+    font-size: 1.4rem;
+    margin-bottom: 2.5rem;
+    max-width: 800px;
     margin-left: auto;
     margin-right: auto;
-    color: #e6b800;
+    color: var(--accent);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .hero-content .btn {
-    padding: 12px 30px;
-    font-size: 1.2rem;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-    background: linear-gradient(to right, #e6b800, #ffcc33);
+    padding: 14px 35px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    background: linear-gradient(45deg, var(--accent), #ffcc33);
     border: none;
-    color: #1a1a1a;
+    border-radius: 25px;
+    box-shadow: var(--shadow-light);
+    color: var(--background-dark);
+    text-decoration: none;
 }
 
 .hero-content .btn:hover {
-    transform: scale(1.05);
-    background: linear-gradient(to right, #ffcc33, #e6b800);
+    transform: scale(1.08);
+    background: linear-gradient(45deg, #ffcc33, var(--accent));
+    box-shadow: var(--shadow-dark);
 }
 
 .animate-text {
-    animation: slideUp 1s ease-in-out;
+    animation: slideUp 1s ease-in-out forwards;
+    opacity: 0;
 }
 
 .animate-button {
-    animation: slideUp 1.2s ease-in-out;
+    animation: slideUp 1.2s ease-in-out forwards 0.5s;
+    opacity: 0;
 }
 
 @keyframes slideUp {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(30px);
     }
     to {
         opacity: 1;
@@ -94,107 +142,165 @@ body {
     }
 }
 
-.gallery-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-}
-
-.gallery-item {
+section {
+    padding: 60px 0;
     position: relative;
-    width: 300px;
-    height: 200px;
-    overflow: hidden;
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.gallery-item .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(40, 40, 40, 0.9);
-    color: #e6b800;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.gallery-item:hover img {
-    transform: scale(1.1);
-}
-
-.gallery-item:hover .overlay {
-    opacity: 1;
-}
-
-.contact-form {
-    max-width: 600px;
-    margin: 0 auto;
-    background: rgba(50, 50, 50, 0.8);
-    padding: 20px;
-    border-radius: 10px;
-    border: 1px solid rgba(230, 184, 0, 0.2);
-}
-
-.contact-form .form-label {
-    color: #e6b800;
-}
-
-.contact-form .form-control {
-    background-color: rgba(255, 255, 255, 0.05);
-    color: #fff;
-    border: 1px solid rgba(230, 184, 0, 0.1);
-}
-
-.contact-form .form-control:focus {
-    border-color: #e6b800;
-    box-shadow: 0 0 10px rgba(230, 184, 0, 0.3);
-}
-
-.contact-form .btn {
-    background: linear-gradient(to right, #e6b800, #ffcc33);
-    border: none;
-    color: #1a1a1a;
-}
-
-.contact-form .btn:hover {
-    background: linear-gradient(to right, #ffcc33, #e6b800);
-}
-
-.navbar {
-    background: linear-gradient(to right, #1e2a44, #d4a017) !important;
-}
-
-.navbar-brand, .nav-link {
-    color: #fff !important;
-}
-
-.nav-link:hover, .nav-link.active {
-    color: #e6b800 !important;
 }
 
 .container h2 {
-    color: #e6b800;
+    color: var(--accent);
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-footer {
-    background-color: #1e1e1e !important;
+.chat-container {
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    width: 350px;
+    height: 450px;
+    background-color: #2c2c2c;
+    border: 1px solid rgba(230, 184, 0, 0.2);
+    border-radius: 10px;
+    box-shadow: var(--shadow-dark);
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    font-family: 'Poppins', sans-serif;
+}
+
+.chat-header {
+    background: linear-gradient(to right, #1e2a44, var(--primary));
+    color: var(--text-light);
+    padding: 12px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.close-btn {
+    cursor: pointer;
+    font-size: 20px;
+    color: var(--text-light);
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: var(--accent);
+}
+
+.chat-messages {
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background-color: #1e1e1e;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    max-height: calc(100% - 60px);
+}
+
+.message-container {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.message-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.message {
+    padding: 10px 15px;
+    border-radius: 15px;
+    max-width: 70%;
+    word-wrap: break-word;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.user-message {
+    background-color: var(--secondary);
+    color: var(--text-light);
+    margin-left: auto;
+    align-self: flex-end;
+}
+
+.bot-message {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+    align-self: flex-start;
+}
+
+.chat-input {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid rgba(230, 184, 0, 0.1);
+    background-color: #2c2c2c;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#chat-input {
+    flex-grow: 1;
+    margin-right: 10px;
+    padding: 8px 12px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(230, 184, 0, 0.1);
+    border-radius: 5px;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+#chat-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+#chat-input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 8px rgba(230, 184, 0, 0.3);
+}
+
+#send-message {
+    padding: 8px 20px;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.chat-button {
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    background: linear-gradient(45deg, var(--accent), #ffcc33);
+    border: none;
+    border-radius: 25px;
+    box-shadow: var(--shadow-light);
+    color: var(--background-dark);
+    cursor: pointer;
+    z-index: 1000;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.chat-button:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-dark);
 }
 
 @media (max-width: 768px) {
     .hero-content h1 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
 
     .hero-content p {
@@ -203,13 +309,20 @@ footer {
     }
 
     .hero-content .btn {
-        font-size: 1rem;
+        font-size: 1.1rem;
         padding: 10px 25px;
     }
 
-    .gallery-item {
-        width: 100%;
-        height: 150px;
+    .chat-container {
+        width: 90%;
+        left: 5%;
+        right: 5%;
+        height: 400px;
+    }
+
+    .chat-button {
+        padding: 10px 20px;
+        font-size: 1rem;
     }
 }
 
@@ -223,132 +336,29 @@ footer {
     }
 
     .hero-content p {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
     }
 
     .hero-content .btn {
         font-size: 0.9rem;
         padding: 8px 20px;
     }
+
+    .chat-button {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
 }
+
 footer {
-    background-color: #1a1a1a;
+    background-color: var(--background-dark);
     padding: 20px 0;
-    margin-top: 500px;
+    margin-top: 40px;
+    box-shadow: var(--shadow-light);
 }
+
 footer p {
-    color: #fff;
+    color: var(--text-light);
     font-size: 0.9rem;
     margin: 0;
-}
-
-@media (max-width: 768px) {
-    h2 {
-        font-size: 2rem;
-    }
-    .card-img-top {
-        height: 200px;
-    }
-    .btn-group .btn {
-        font-size: 0.8rem;
-        padding: 8px 12px;
-    }
-}
-.comparison-table {
-    width: 100%;
-    margin: 20px auto;
-    border-collapse: collapse;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.comparison-table th, .comparison-table td {
-    border: 1px solid #ddd;
-    padding: 12px;
-    text-align: center;
-    font-size: 0.9rem;
-}
-
-.comparison-table thead tr {
-    background: linear-gradient(to right, #1e2a44, #d4a017);
-}
-
-.comparison-table th {
-    background: transparent; 
-    color: #fff;
-    font-weight: 700;
-}
-
-.comparison-table td {
-    color: #333;
-}
-
-.comparison-table tr:nth-child(even) {
-    background-color: #f8f9fa;
-}
-
-@media (max-width: 768px) {
-    .comparison-table th, .comparison-table td {
-        padding: 8px;
-        font-size: 0.8rem;
-    }
-}
-.car-images img {
-    max-height: 200px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    transition: transform 0.3s ease;
-}
-.car-images img:hover {
-    transform: scale(1.05);
-}
-
-.car-images img {
-    max-height: 200px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    transition: transform 0.3s ease;
-}
-
-.car-images img:hover {
-    transform: scale(1.05);
-}
-
-@media (max-width: 768px) {
-    .car-images img {
-        max-height: 150px;
-    }
-}
-/* Sidebar reklama */
-.ad-sidebar {
-    background-color: #f8f8f8;
-    padding: 15px;
-    border-radius: 5px;
-}
-.ad-sidebar img {
-    transition: opacity 0.3s ease;
-}
-.ad-sidebar img:hover {
-    opacity: 0.8;
-}
-
-/* Horizontalni baner */
-.ad-horizontal {
-    max-width: 100%;
-}
-.ad-horizontal img {
-    border-radius: 5px;
-}
-@media (max-width: 768px) {
-    .ad-horizontal img {
-        max-width: 100%;
-    }
-}
-
-/* Footer baner */
-.ad-footer img {
-    max-width: 100%;
-    border-radius: 5px;
 }
