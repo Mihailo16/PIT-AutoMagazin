@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
     sendMessage.addEventListener('click', () => {
         const message = chatInput.value.trim().toLowerCase();
         if (message) {
-            addMessage('Korisnik: ' + chatInput.value, 'user-message', 'SLIKE/user-icon.png');
+            addMessage('Korisnik: ' + chatInput.value, 'user-message', 'SLIKE/user.jpg');
             processMessage(message);
             chatInput.value = '';
         }
